@@ -515,7 +515,7 @@
         )
       )
     )
-    (symbol "Digital:SN74HC05N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (symbol "digital:SN74HC05N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -12.7 16.24 0)
         (effects (font (size 1.27 1.27)) (justify left bottom))
       )
@@ -591,7 +591,7 @@
         )
       )
     )
-    (symbol "Digital:SN74HC08N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (symbol "digital:SN74HC08N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -12.7 18.78 0)
         (effects (font (size 1.27 1.27)) (justify left bottom))
       )
@@ -667,7 +667,7 @@
         )
       )
     )
-    (symbol "Digital:SN74HC27N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (symbol "digital:SN74HC27N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -12.7 21.32 0)
         (effects (font (size 1.27 1.27)) (justify left bottom))
       )
@@ -743,7 +743,7 @@
         )
       )
     )
-    (symbol "Digital:SN74HC32N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (symbol "digital:SN74HC32N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -12.7 18.78 0)
         (effects (font (size 1.27 1.27)) (justify left bottom))
       )
@@ -819,7 +819,7 @@
         )
       )
     )
-    (symbol "Digital:SN74HC86N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (symbol "digital:SN74HC86N" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at -12.7 18.78 0)
         (effects (font (size 1.27 1.27)) (justify left bottom))
       )
@@ -1028,6 +1028,7 @@
       )
     )
   )
+
 
   (junction (at 257.81 361.95) (diameter 0) (color 0 0 0 0)
     (uuid 05c5c45f-6f22-4a96-80a0-504b5000a194)
@@ -4047,7 +4048,7 @@
     (pin "1" (uuid d207cdd7-5f50-41cb-8cfa-cf1fdedd58e4))
   )
 
-  (symbol (lib_id "Digital:SN74HC27N") (at 392.43 179.07 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC27N") (at 392.43 179.07 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 0d5e5a94-0284-40fc-965d-b8a9d2cfcf15)
     (property "Reference" "U12" (id 0) (at 392.43 153.67 0))
@@ -4092,7 +4093,7 @@
     (pin "1" (uuid 00ef5133-e8e6-4026-af02-c3f25e05df69))
   )
 
-  (symbol (lib_id "Digital:SN74HC32N") (at 643.89 107.95 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC32N") (at 643.89 107.95 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 0e465b92-0ef6-4678-9e0e-3ff0e481d9d7)
     (property "Reference" "U15" (id 0) (at 643.89 85.09 0))
@@ -4185,7 +4186,7 @@
     (pin "1" (uuid a3f9b8ec-8c34-4c32-9200-0e66841b542b))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 290.83 427.99 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 290.83 427.99 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 228bed38-4cdc-476a-8d1b-3ef1f0a6d90c)
     (property "Reference" "U11" (id 0) (at 290.83 405.13 0))
@@ -4348,7 +4349,7 @@
     (pin "2" (uuid 465a6bbe-2ca4-4a74-97d5-afff7446878f))
   )
 
-  (symbol (lib_id "Digital:SN74HC86N") (at 120.65 238.76 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC86N") (at 120.65 238.76 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 3565340e-f976-4915-ac99-285738dfc1da)
     (property "Reference" "U2" (id 0) (at 120.65 215.9 0))
@@ -4434,7 +4435,7 @@
     (pin "8" (uuid 7ea34b9f-8349-4ae0-b8bc-52088878b15f))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 711.2 144.78 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 711.2 144.78 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 3d7de2f1-317f-4ff5-ad34-03056bec52c9)
     (property "Reference" "U16" (id 0) (at 711.2 121.92 0))
@@ -4752,7 +4753,7 @@
     (pin "8" (uuid 6ca903bc-a7dc-434c-a50a-9a4c2d734d28))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 290.83 302.26 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 290.83 302.26 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 5a9639b2-5306-46f7-9d4d-caf17642f2b9)
     (property "Reference" "U9" (id 0) (at 290.83 279.4 0))
@@ -4816,7 +4817,7 @@
     (pin "2" (uuid a64e95c5-2aed-4dc3-91d8-68b8f811a50c))
   )
 
-  (symbol (lib_id "Digital:SN74HC27N") (at 392.43 240.03 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC27N") (at 392.43 240.03 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 5d63b319-73be-46cd-a351-9f5aa90d1d2a)
     (property "Reference" "U13" (id 0) (at 392.43 214.63 0))
@@ -4843,7 +4844,7 @@
     (pin "9" (uuid f559f6a5-f1c2-40be-99eb-4a14d26debb0))
   )
 
-  (symbol (lib_id "Digital:SN74HC86N") (at 200.66 173.99 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC86N") (at 200.66 173.99 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 5ff01da8-ce6a-4bf0-b9a6-7e9d226a9b7a)
     (property "Reference" "U5" (id 0) (at 200.66 151.13 0))
@@ -4972,7 +4973,7 @@
     (pin "1" (uuid a081f84e-74d2-41cf-9d56-a3392bfa1acd))
   )
 
-  (symbol (lib_id "Digital:SN74HC05N") (at 511.81 173.99 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC05N") (at 511.81 173.99 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 6b7fe0cb-8b7c-4dbb-805e-3f37988243ae)
     (property "Reference" "U14" (id 0) (at 511.81 153.67 0))
@@ -5084,7 +5085,7 @@
     (pin "2" (uuid f884d654-0a6b-4dde-ba9f-94eae6bd1b11))
   )
 
-  (symbol (lib_id "Digital:SN74HC86N") (at 120.65 175.26 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC86N") (at 120.65 175.26 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 7ec71f4d-a768-41b7-b76b-1f194adee285)
     (property "Reference" "U1" (id 0) (at 120.65 152.4 0))
@@ -5165,7 +5166,7 @@
     (pin "2" (uuid 1a10d479-97b9-40e3-b4f9-64a6d4787a00))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 290.83 237.49 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 290.83 237.49 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 8f3828e2-0d7c-4841-9d6e-2c21fe27c943)
     (property "Reference" "U8" (id 0) (at 290.83 214.63 0))
@@ -5280,7 +5281,7 @@
     (pin "1" (uuid d94e3243-79df-4874-97ac-36608f65cb94))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 290.83 364.49 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 290.83 364.49 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid 9b41bf4c-9e18-4763-96ea-6196361dc2df)
     (property "Reference" "U10" (id 0) (at 290.83 341.63 0))
@@ -5393,7 +5394,7 @@
     (pin "1" (uuid 9e6f4433-86cb-46f8-bc08-e5761b069a0d))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 290.83 173.99 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 290.83 173.99 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid aeb73c38-8d76-4e9b-a766-b31dc50a7fa9)
     (property "Reference" "U7" (id 0) (at 290.83 151.13 0))
@@ -5474,7 +5475,7 @@
     (pin "2" (uuid 9cb3058c-53f2-4b2d-a883-9345b3acf7e7))
   )
 
-  (symbol (lib_id "Digital:SN74HC86N") (at 120.65 368.3 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC86N") (at 120.65 368.3 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid b50c7ad4-013e-4afb-91b0-fd8587675b77)
     (property "Reference" "U4" (id 0) (at 120.65 345.44 0))
@@ -5623,7 +5624,7 @@
     (pin "1" (uuid 68aaa457-1a22-4174-a024-152f3768b1ee))
   )
 
-  (symbol (lib_id "Digital:SN74HC86N") (at 120.65 304.8 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC86N") (at 120.65 304.8 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid c7e143e9-c642-46eb-bc03-376edfd60b7b)
     (property "Reference" "U3" (id 0) (at 120.65 281.94 0))
@@ -5938,7 +5939,7 @@
     (pin "1" (uuid bdac74ab-278e-4e0c-8aea-fa1f9ebbe016))
   )
 
-  (symbol (lib_id "Digital:SN74HC08N") (at 711.2 198.12 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC08N") (at 711.2 198.12 0) (unit 1)
     (in_bom yes) (on_board yes) (fields_autoplaced)
     (uuid e268853b-c1b3-40cf-9d6f-64fde8917ce8)
     (property "Reference" "U17" (id 0) (at 711.2 175.26 0))
@@ -6095,7 +6096,7 @@
     (pin "1" (uuid 72cfdc49-d236-400e-8126-3388e841c7ba))
   )
 
-  (symbol (lib_id "Digital:SN74HC86N") (at 200.66 238.76 0) (unit 1)
+  (symbol (lib_id "digital:SN74HC86N") (at 200.66 238.76 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid fbc3ca7b-108b-4ae7-b1b6-aeb45abc5a46)
     (property "Reference" "U6" (id 0) (at 200.66 215.9 0))

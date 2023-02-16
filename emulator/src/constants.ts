@@ -28,3 +28,21 @@ export enum Flags {
     A_MORE_B = 0b0010,
     RESULT_IS_NULL = 0b0001
 }
+
+export enum Commands {
+    SET = 0b000000,
+    MOV = 0b000001,
+    RD  = 0b000010,
+    WT  = 0b000011,
+    ADD = 0b000100,
+    SUB = 0b000101,
+    CON = 0b000110,
+    DIS = 0b000111,
+    NEG = 0b001000,
+    COM = 0b001001,
+    JMP = 0b001010,
+    CJM = 0b001011,
+    END = 0b001100,
+    IN  = 0b001101,
+    OUT = 0b001110,
+}
