@@ -1,0 +1,217 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~ NovPC spec ~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
++++++++++++++++++++++++++++++
+++++ Common requirements ++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|                                                    |   
+|                                                    |
+|                                                    |
+|   This computer should:                            |
+|   1. work with signed and unsigned numbers         |
+|   2. have unconditional jump instruction           |
+|   3. have conditional jump instruction             |
+|   4. have flags CARRY, ZERO, NEGATIVE, OVERFLOW    |
+|                                                    |
+|                                                    |
+|                                                    |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+++++++++++++++++++++++++++++++
+++++ Requirements for ALU ++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|                                                      |
+|                                                      |
+|                                                      |    
+|  >>>>>> Operations <<<<<<                            |
+|                                                      |  
+|  1. Sum operation                                    |
+|  2. Sub operation                                    |
+|  3. AND operation                                    |
+|  4. OR  operation                                    |
+|  5. XOR operation                                    |
+|  6. NOT operation                                    |
+|                                                      |
+|                                                      |
+|  >>>>>>   Flags    <<<<<<                            |
+|                                                      |
+|  1. Flag C                                           |
+|  2. Flag Z                                           |
+|  3. Flag N                                           |
+|  4. Flag V                                           |
+|                                                      |
+|                                                      |
+|  >>>>>> Flags register structure <<<<<               |
+|                                                      |
+|  | bit-3 | bit-2 | bit-1 | bit-0 |                   |
+|  |-------|-------|-------|-------|                   |
+|  |   C   |   Z   |   N   |   V   |                   |
+|                                                      |
+|                                                      |
+|                                                      |
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
+
+
+
+
++++++++++++++++++++++++++++++
+++++ Requirements for CU ++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|                                                                                                                                                                               |
+|                                                                                                                                                                               |
+|                                                                                                                                                                               |  
+|  >>>>>> Instructions for implementation: <<<<<<                                                                                                                               |
+|                                                                                                                                                                               |
+|  1.  SET - MACHINE CODE is [[000000]] - ARGS [r1] [immediate]  -  DESC (set immediate value to register)                                                                      |
+|  2.  MOV - MACHINE CODE is [[000001]] - ARGS [r1] [r2]         -  DESC (set value from register r1 to register r2)                                                            |
+|  3.  RD  - MACHINE CODE is [[000010]] - ARGS [r1] [a1]         -  DESC (read value from address a1 into register r1)                                                          |
+|  4.  WT  - MACHINE CODE is [[000011]] - ARGS [r1] [a1]         -  DESC (write value from register r1 into address a1)                                                         |
+|  5.  ADD - MACHINE CODE is [[000100]] - ARGS [r1] [r2] [r3]    -  DESC (get sum of r1 and r2 into register r3)                                                                |
+|  6.  SUB - MACHINE CODE is [[000101]] - ARGS [r1] [r2] [r3]    -  DESC (get sub of r1 and r2 into register r3)                                                                |
+|  7.  CON - MACHINE CODE is [[000110]] - ARGS [r1] [r2] [r3]    -  DESC (get conjunction of r1 into register r2)                                                               |
+|  8.  DIS - MACHINE CODE is [[000111]] - ARGS [r1] [r2] [r3]    -  DESC (get disjunction of r1 into register r2)                                                               |
+|  9.  NEG - MACHINE CODE is [[001000]] - ARGS [r1] [r2]         -  DESC (get negation of register r1 and set it into r2)                                                       |
+|  10  XOR - MACHINE CODE is [[001001]] - ARGS [r1] [r2] [r3]    -  DESC (get xor result of registers r1 and r2 and save it into r3)                                            |
+|  10. COM - MACHINE CODE is [[001010]] - ARGS [r1] [r2]         -  DESC (compare values in registers r1 and r2 and save flag register [it same as sub but with flags saving])  |
+|  11. JMP - MACHINE CODE is [[001011]] - ARGS [a1]              -  DESC (jump into address a1)                                                                                 |   
+|  12. CJM - MACHINE CODE is [[001100]] - ARGS [f1] [a1]         -  DESC (jump into address a1 if flags code is equal f1)                                                       |
+|      * Flag can have next values:                                                                                                                                             |
+|       \                                                                                                                                                                       |
+|        + EQ       -     Z is [1]                     -   Equal                                                                                                                |
+|        + NE       -     Z is [0]                     -   Not equal                                                                                                            |
+|        + CS/HS    -     C is [1]                     -   Higher or same (unsigned >=)                                                                                         |
+|        + CC/LO    -     C is [0]                     -   Lower (unsigned <)                                                                                                   |
+|        + MI       -     N is [1]                     -   Negative                                                                                                             |
+|        + PL       -     N is [0]                     -   Positive or zero                                                                                                     |
+|        + VS       -     V is [1]                     -   Overflow                                                                                                             |
+|        + VC       -     V is [0]                     -   No overflow                                                                                                          |
+|        + HI       -     C is [1] AND Z is [0]        -   Higher (unsigned <=)                                                                                                 |
+|        + LS       -     C is [0] OR  Z is [1]        -   Lower or same (unsigned <= )                                                                                         |
+|        + GE       -     N equal V                    -   Signed >=                                                                                                            |
+|        + LT       -     N not equal V                -   Signed <                                                                                                             |
+|        + GT       -     Z is [0] and N   equal   V   -   Signed >                                                                                                             |
+|        + LE       -     Z is [1] and N not equal V   -   Signed <=                                                                                                            |
+|  13. IN  - MACHINE CODE is [[001101]] - ARGS                    -  DESC (get value in register from input device)                                                             |
+|  14. OUT - MACHINE CODE is [[001110]] - ARGS                    -  DESC (set value into output device)                                                                        |
+|                                                                                                                                                                               |
+|                                                                                                                                                                               |
+|  >>>>>> Devices that connected to control unit <<<<<<                                                                                                                         |
+|                                                                                                                                                                               | 
+|  1.  Micro commands counter                                                                                                                                                   |
+|  2.  Commands counter                                                                                                                                                         |
+|  3.  ALU                                                                                                                                                                      |
+|  4.  RAM                                                                                                                                                                      |
+|  5.  RAM address register                                                                                                                                                     |
+|  6.  Optional code register                                                                                                                                                   |
+|  7.  A register  (Inner)                                                                                                                                                      |
+|  8.  B register  (Inner)                                                                                                                                                      |
+|  9.  Registers for intermediate values (2-3 pieces)                                                                                                                           |
+|  10. Input register                                                                                                                                                           |
+|  11. Output register                                                                                                                                                          |
+|  12. Flags register                                                                                                                                                           |
+|                                                                                                                                                                               |
+|                                                                                                                                                                               |
+|                                                                                                                                                                               |
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
++++++++++++++++++++++++
+++++ RAM structure ++++
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+|                                                                                                   |
+|                                                                                                   |
+|                                                                                                   |
+|  >>>>>> For ADD, SUB, CON, DIS, XOR instructions <<<<<<                                           |
+|  > | 6 bits | 4 bits | 4 bits | low 4 bits of immediate |                                         |
+|  > |--------|--------|--------|-------------------------|                                         |
+|  > | Opcode |   R1   |   R2   |           R3            |                                         |
+|  >                                                                                                |
+|  > *** Example ***                                                                                |
+|  > * Description:                                                                                 |
+|  > * Get sum into register 0000 0011 (r3) from register 0001 (r1) and 0010 (r2).                  |
+|  > * Representation in RAM                                                                        |
+|  > * +--------+------+------+-----------+                                                         |
+|  > * | 000100 | 0001 | 0010 | 0000 0011 |                                                         |
+|  > * +--------+------+------+-----------+                                                         |
+|  > *                                                                                              |
+|                                                                                                   |
+|  >>>>>> For MOV, NEG, COM <<<<<<                                                                  |
+|  > | 6 bits | 4 bits | 4 bits | 8 bits |                                                          |
+|  > |--------|--------|--------|--------|                                                          |
+|  > | Opcode |   R1   |   R2   |   -    |                                                          |
+|  >                                                                                                |
+|  > *** Example ***                                                                                |
+|  > * Description                                                                                  |
+|  > * Move value from register 0001 (r1) into 0011 (r3)                                            |
+|  > * Representation in RAM                                                                        |
+|  > * +--------+------+------+-----------+                                                         |
+|  > * | 000001 | 0001 | 0011 | 0000 0000 |                                                         |
+|  > * +--------+------+------+-----------+                                                         |
+|  > *                                                                                              |
+|                                                                                                   |
+|  >>>>>> For WT, RD <<<<<<                                                                         |
+|  > | 6 bits | 4 bits | 12 bits |                                                                  |
+|  > |--------|--------|---------|                                                                  |
+|  > | Opcode |   R1   | Address |                                                                  |
+|  >                                                                                                |
+|  > *** Example ***                                                                                |
+|  > * Description                                                                                  |
+|  > * Read value from address 000000010000 into register 0001 (r1)                                 |
+|  > * Representation in RAM                                                                        |
+|  > * +--------+------+----------------+                                                           |
+|  > * | 000001 | 0001 | 0000 0001 0000 |                                                           |
+|  > * +--------+------+----------------+                                                           |
+|  > *                                                                                              |
+|                                                                                                   |
+|  >>>>>> For SET <<<<<<                                                                            |
+|  > | 6 bits | 4 bits | 4 bits |  8 bits   |                                                       |
+|  > |--------|--------|--------|-----------|                                                       |
+|  > | Opcode |   R1   |   -    | Immediate |                                                       |
+|  >                                                                                                |
+|  > *** Example ***                                                                                |
+|  > * Description                                                                                  |
+|  > * Set value 0000 0011 (3) into register 0001 (r1)                                              |
+|  > * Representation in RAM                                                                        |
+|  > * +--------+------+------+-----------+                                                         |
+|  > * | 000001 | 0001 | 0000 | 0000 0011 |                                                         |
+|  > * +--------+------+------+-----------+                                                         |
+|  > *                                                                                              |
+|                                                                                                   |
+|  >>>>>> For JMP <<<<<<                                                                            |
+|  > | 6 bits | 4 bits | 12 bits |                                                                  |
+|  > |--------|--------|---------|                                                                  |
+|  > | Opcode |   -    | Address |                                                                  |
+|  >                                                                                                |
+|  > *** Example ***                                                                                |
+|  > * Description                                                                                  |
+|  > * Jump by address 0000 0000 0011                                                               |
+|  > * Representation in RAM                                                                        |
+|  > * +--------+------+----------------+                                                           |
+|  > * | 000001 | 0000 | 0000 0000 0011 |                                                           |
+|  > * +--------+------+----------------+                                                           |
+|  > *                                                                                              |
+|                                                                                                   |
+|  >>>>>> For CJM <<<<<<                                                                            |
+|  > | 6 bits | 4 bits | 12 bits |                                                                  |
+|  > |--------|--------|---------|                                                                  |
+|  > | Opcode |   -    | Address |                                                                  |
+|  >                                                                                                |
+|  > *** Example ***                                                                                |
+|  > * Description                                                                                  |
+|  > * Jump by address 0000 0000 0011 if Z flag is set (EQ) [see >> Flags register structure << ]   |
+|  > * Representation in RAM                                                                        |
+|  > * +--------+------+----------------+                                                           |
+|  > * | 000001 | 0100 | 0000 0000 0011 |                                                           |
+|  > * +--------+------+----------------+                                                           |
+|  > *                                                                                              |
+|                                                                                                   |
+|                                                                                                   |
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
